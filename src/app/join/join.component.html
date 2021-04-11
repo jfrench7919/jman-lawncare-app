@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-12">
+      <div class="card-header">
+        Add new person
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" #name>
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" #age>
+          </div>
+          <button type="button" (click)="addPerson(name.value, age.value)" class="btn btn-primary">Add person</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card col-12">
+      <div class="card-header">
+        Current People
+      </div>
+      <div class="card-body">
+        <table class="table table-dark table-bordered" *ngIf="people.length > 0">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let person of people">
+              <td> {{person.name}} </td>
+              <td> {{person.age}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
